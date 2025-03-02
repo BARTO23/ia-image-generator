@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap");
 
 * {
   font-family: "Inter", serif;
@@ -8,15 +8,15 @@
 }
 
 :root {
-  --color-primary: #5C56E1;
+  --color-primary: #5c56e1;
   --color-primary-dark: #5b21b6;
-  --color-accent: #8B5CF6;
-  --color-card: #FFFFFF;
-  --color-input: #F1F1FF;
-  --color-text: #09090E;
-  --color-placeholder: #5C5A87;
-  --color-border: #D4D4ED;
-  --color-gradient: linear-gradient(135deg, #5C56E1, #8B5CF6);
+  --color-accent: #8b5cf6;
+  --color-card: #ffffff;
+  --color-input: #f1f1ff;
+  --color-text: #09090e;
+  --color-placeholder: #5c5a87;
+  --color-border: #d4d4ed;
+  --color-gradient: linear-gradient(135deg, #5c56e1, #8b5cf6);
 }
 
 body {
@@ -25,8 +25,8 @@ body {
   justify-content: center;
   min-height: 100vh;
   padding: 15px;
-  color: var(--color-text) ;
-  background: linear-gradient(#E9E9FF, #C8C7FF);
+  color: var(--color-text);
+  background: linear-gradient(#e9e9ff, #c8c7ff);
 }
 
 .container {
@@ -104,9 +104,9 @@ body {
   margin: 35px 0 5px;
 }
 
-
 .main-content .prompt-container {
   width: 100%;
+  position: relative;
   margin-bottom: 20px;
 }
 
@@ -128,8 +128,38 @@ body {
   color: var(--color-placeholder);
 }
 
+.prompt-container .prompt-input::placeholder {
+  color: var(--color-placeholder);
+}
+
 .prompt-container .prompt-input:focus {
   outline: none;
   border-color: var(--color-accent);
   box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+}
+
+.prompt-container {
+  position: relative;
+}
+
+.prompt-container .prompt-btn {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  height: 35px;
+  width: 35px;
+  border: none;
+  color: #fff;
+  font-size: 0.75rem;
+  border-radius: 50%;
+  opacity: 0.8;
+  cursor: pointer;
+  background: var(--color-gradient);
+  transition: all 0.3s ease;
+}
+
+.prompt-container .prompt-btn:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
