@@ -61,26 +61,29 @@ promptBtn.addEventListener("click", () => {
   promptInput.focus();
 });
 
-// 
-const createImageCard = (selectedModel,imageCount,aspectRatio,promptText) => {
-  gridGallery.innerHTML = ""
+//
+const createImageCards = (selectedModel, imageCount, aspectRatio, promptText) => {
+  // Limpia la galería antes de agregar nuevas imágenes
+  gridGallery.innerHTML = "";
 
   for (let i = 0; i < imageCount; i++) {
-    gridGallery.innerHTML += `const createImageCard = (selectedModel, imageCount, aspectRatio, promptText) => {
-  for (let i = 0; i < imageCount; i++) {
-    gridGallery.innerHTML += '<div class="img-card loading" id="img-card-${i}" style="aspect-ratio: ${aspectRatio}" >
-              <div class="status-container">
-                <div class="spinner"></div>
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <p class="status-text">Generando...</p>
-              </div>
-              <img src="test.png" class="result-img" />
-            </div>';
-  }
-}`;
+    // Crear la estructura HTML de cada imagen
+    const imageCard = `
+      <div class="img-card loading" id="img-card-${i}" style="aspect-ratio: ${aspectRatio}">
+        <div class="status-container">
+          <div class="spinner"></div>
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <p class="status-text">Generando imagen ${i + 1} de ${imageCount}...</p>
+        </div>
+        <img src="test.png" class="result-img" />
+      </div>`;
+
+    // Agregar la tarjeta de imagen al contenedor de la galería
+    gridGallery.innerHTML += imageCard;
   }
 };
 
+// Función para manejar el envío del formulario
 const handleFormSubmit = (e) => {
   e.preventDefault();
 
@@ -89,9 +92,11 @@ const handleFormSubmit = (e) => {
   const aspectRatio = ratioSelect.value || "1/1";
   const promptText = promptInput.value.trim();
 
-  createImageCard(selectedModel, imageCount, aspectRatio, promptText);
+  // Llamamos a la función corregida
+  createImageCards(selectedModel, imageCount, aspectRatio, promptText);
 };
 
+// Agregar el evento de envío del formulario
 promptForm.addEventListener("submit", handleFormSubmit);
 
 // Agrega el evento de clic al botón para activar el cambio de tema
